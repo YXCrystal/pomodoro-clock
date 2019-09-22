@@ -5,6 +5,59 @@
 html {
   font-size: 10px; }
 
+body {
+  background-image: url(https://images.unsplash.com/photo-1523764803492-30ab66dc6893?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=674&q=80);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
 .container {
   text-align: center;
-  margin-top: 10rem; }
+  margin-top: 12rem;
+  font-size: 4rem; }
+
+.primary {
+  font-size: 10rem;
+  margin-bottom: 3rem;
+  color: white; }
+
+.controls {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.6); }
+  .controls__session {
+    float: left;
+    background-color: rgba(255, 192, 203, 0.85);
+    margin-right: 5rem;
+    padding: 3.5rem 8rem; }
+  .controls__break {
+    float: left;
+    background-color: rgba(255, 192, 203, 0.85);
+    padding: 3.5rem 8rem; }
+  .controls__title {
+    color: white; }
+  .controls__time {
+    display: inline;
+    color: white; }
+  .controls__style:hover {
+    color: white;
+    cursor: pointer; }
+
+.timer {
+  background-color: rgba(255, 192, 203, 0.85);
+  color: rgba(255, 255, 255, 0.6);
+  width: 53rem;
+  margin: 3rem auto;
+  padding: 6rem 9rem; }
+  .timer__clock {
+    font-size: 9rem;
+    color: white; }
+
+#play {
+  margin-right: 5rem;
+  font-size: 4rem;
+  display: inline-block; }
+
+#reset {
+  font-size: 5rem;
+  position: relative;
+  top: 0.8rem; }

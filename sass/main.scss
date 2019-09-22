@@ -1,3 +1,7 @@
+
+$light-pink: rgba(pink, .85);
+$fade-white: rgba(white, .6);
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +11,86 @@ html {
     font-size: 10px;
 }
 
+body {
+    background-image: url(https://images.unsplash.com/photo-1523764803492-30ab66dc6893?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=674&q=80);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
 .container {
     text-align: center;
-    margin-top: 10rem;
+    margin-top: 12rem;
+    font-size: 4rem;
+}
+
+.primary {
+    font-size: 10rem;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.controls {
+    display: inline-block;
+    color: $fade-white;
+    
+
+    &__session {
+        float: left;
+        background-color: $light-pink;
+        margin-right: 5rem;
+        padding: 3.5rem 8rem;
+
+    }
+
+    &__break {
+        float: left;
+        background-color: $light-pink;
+        padding: 3.5rem 8rem;
+
+    }
+
+    &__title {
+        color: white;
+    }
+
+    &__time {
+        display: inline;
+        color: white;
+    }
+
+
+    &__style {
+        &:hover {
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
+
+.timer {
+    background-color: $light-pink;
+    color: $fade-white;
+    width: 53rem;
+    margin: 3rem auto;
+    padding: 6rem 9rem;
+
+    &__clock {
+        font-size: 9rem;
+        color: white;
+    }
+
+}
+
+#play {
+    margin-right: 5rem;
+    font-size: 4rem;
+    display: inline-block;
+}
+
+#reset {
+    font-size: 5rem;
+    position: relative;
+    top: 0.8rem;
+    
 }

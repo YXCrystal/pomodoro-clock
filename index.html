@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Pomodoro Clock</title> 
+        <title>Pomodoro Clock</title>
+        <link rel='stylesheet' href='/css/style.css'>
     </head>
     <body>
         <div class='container'> 
             <h1 class='primary'> Pomodoro Clock </h1>
             <div class='controls'>
                 <div class="controls__session">
-                    <h2 class='controls__session-title'>Session</h2>
-                    <p class='controls__session-time'>25</p>
-                    <p class='controls__session-up'>&#9650;</p>
-                    <p class='controls__session-down'>&#9660;</p>
+                    <h2 class='controls__title'>Session</h2>
+                    <span class= 'controls__style' id="session-inc">&#9650;</span>
+                    <p class="controls__time" id="session-time">25</p>
+                    <span class='controls__style' id="session-dec">&#9660;</span>
+                    
                 </div>
-                <div class="controls__session">
-                    <h2 class='controls__session-title'>Break</h2>
-                    <p class='controls__session-time'>5</p>
-                    <p class='controls__session-up'>&#9650;</p>
-                    <p class='controls__session-down'>&#9660;</p>
+                <div class="controls__break">
+                    <h2 class='controls__title'>Break</h2>
+                    <span class='controls__style' id="break-inc">&#9650;</span>
+                    <p class="controls__time" id="break-time">5</p>
+                    <span class='controls__style' id="break-dec">&#9660;</span>
                 </div>
             </div>
             <div class="timer">
-                <h2 class="timer__clock">25:00</h2>
-                <p class="timer__play">	&#9654;</p>
-                <p class='timer__reset'>&#8635;</p>
-                <p class="timer__pause">&#9208;</p>
-                <p class='timer__stop'>&#9632;</p>
+                <h2 class="timer__clock">
+                    <span id="timer__time">&nbsp;</span>
+                </h2>
+                <div class="controls__btns">
+                    <span class='controls__style' id='play'>&#9654;</span>
+                    <span class='controls__style' id="reset">&#8634;</span>
+                </div>         
+                
             </div>
         </div>
-
     </body>
+    <script type='text/javascript' src='index.js'></script>
 </html>
