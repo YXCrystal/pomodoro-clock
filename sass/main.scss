@@ -16,6 +16,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    font-family: 'Raleway', sans-serif;
     
 }
 .container {
@@ -39,14 +40,14 @@ body {
         float: left;
         background-color: $light-pink;
         margin-right: 5rem;
-        padding: 3.5rem 8rem;
+        padding: 3.5rem 7rem;
 
     }
 
     &__break {
         float: left;
         background-color: $light-pink;
-        padding: 3.5rem 8rem;
+        padding: 3.5rem 7rem;
 
     }
 
@@ -57,6 +58,8 @@ body {
     &__time {
         display: inline;
         color: white;
+        font-family: 'Orbitron', sans-serif;
+
     }
 
 
@@ -73,11 +76,20 @@ body {
     color: $fade-white;
     width: 53rem;
     margin: 3rem auto;
-    padding: 6rem 9rem;
+    padding: 6rem 8.8rem;
 
-    &__clock {
-        font-size: 9rem;
+    &__title {
+        font-size: 8rem;
         color: white;
+        margin-bottom: 3rem;
+        
+    }
+    &__clock {
+        font-size: 7rem;
+        color: white;
+        text-shadow: 3px 3px 1rem rgba(white, .5);
+        font-family: 'Orbitron', sans-serif;
+        
     }
 
 }
@@ -86,6 +98,7 @@ body {
     margin-right: 5rem;
     font-size: 4rem;
     display: inline-block;
+    margin-top: 1.5rem;
 }
 
 #reset {

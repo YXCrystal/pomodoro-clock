@@ -9,7 +9,8 @@ body {
   background-image: url(https://images.unsplash.com/photo-1523764803492-30ab66dc6893?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=674&q=80);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center; }
+  background-position: center;
+  font-family: 'Raleway', sans-serif; }
 
 .container {
   text-align: center;
@@ -28,16 +29,17 @@ body {
     float: left;
     background-color: rgba(255, 192, 203, 0.85);
     margin-right: 5rem;
-    padding: 3.5rem 8rem; }
+    padding: 3.5rem 7rem; }
   .controls__break {
     float: left;
     background-color: rgba(255, 192, 203, 0.85);
-    padding: 3.5rem 8rem; }
+    padding: 3.5rem 7rem; }
   .controls__title {
     color: white; }
   .controls__time {
     display: inline;
-    color: white; }
+    color: white;
+    font-family: 'Orbitron', sans-serif; }
   .controls__style:hover {
     color: white;
     cursor: pointer; }
@@ -47,15 +49,22 @@ body {
   color: rgba(255, 255, 255, 0.6);
   width: 53rem;
   margin: 3rem auto;
-  padding: 6rem 9rem; }
+  padding: 6rem 8.8rem; }
+  .timer__title {
+    font-size: 8rem;
+    color: white;
+    margin-bottom: 3rem; }
   .timer__clock {
-    font-size: 9rem;
-    color: white; }
+    font-size: 7rem;
+    color: white;
+    text-shadow: 3px 3px 1rem rgba(255, 255, 255, 0.5);
+    font-family: 'Orbitron', sans-serif; }
 
 #play {
   margin-right: 5rem;
   font-size: 4rem;
-  display: inline-block; }
+  display: inline-block;
+  margin-top: 1.5rem; }
 
 #reset {
   font-size: 5rem;
