@@ -95,7 +95,6 @@ function timeDec() {
                 breakTime.textContent = Number(breakTime.textContent) - 1;
             }
         }
-        console.log(isSession);
         timerTime.textContent = convertSeconds(timeLeft * 60 - counter)
     }
 }
