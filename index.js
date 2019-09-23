@@ -1,37 +1,40 @@
 const sessionUp = document.querySelector('#session-inc');
 const sessionDown = document.querySelector('#session-dec');
 const sessionTime = document.querySelector('#session-time');
+const breakUp = document.querySelector('#break-inc');
+const breakDown = document.querySelector('#break-dec');
+const breakTime = document.querySelector('#break-time');
 const timerTime = document.querySelector('#timer__time');
+const timerTitle = document.querySelector('.timer__title');
 const playBtn = document.querySelector('#play');
 const resetBtn = document.querySelector('#reset');
 
 let counter = 0;
-let timeLeft = Number(sessionTime.textContent);
+let timeLeft = sessionTime.textContent;
 
 let symbol = '&#9646;&#9646;'
 let isPlay = true;
+let isSession = true;
+
 
 timerTime.textContent = convertSeconds(timeLeft * 60 - counter);
 
-sessionUp.addEventListener('click', () => {
+function newTime() {
+    counter = 0;
+    isPlay = true;
+    playBtn.innerHTML = '&#9654;'
+    timerTitle.textContent = 'Session';  
     
-    if (counter === 0) {
-        timeLeft++;
-        sessionTime.textContent = Number(sessionTime.textContent) + 1;
-        timerTime.textContent = convertSeconds(timeLeft * 60 - counter)
+    if (isSession) {
+        timeLeft = Number(sessionTime.textContent);
+        timerTitle.textContent = 'Session';
+    } else {
+        timeLeft = Number(breakTime.textContent);
+        timerTitle.textContent = 'Break'; 
     }
-})
 
-
-sessionDown.addEventListener('click', () => {
-    const sessionVal = Number(sessionTime.textContent)
-
-    if (sessionVal !== 1 && counter === 0) {
-        timeLeft--
-        sessionTime.textContent = Number(sessionVal) - 1
-        timerTime.textContent = convertSeconds(timeLeft * 60 - counter)
-    }
-})
+    timerTime.textContent = convertSeconds(timeLeft * 60 - counter);
+}
 
 function convertSeconds(s) {
     let min = Math.floor(s / 60);
@@ -40,18 +43,70 @@ function convertSeconds(s) {
 }
 
 function setup() {
+   
     var interval = setInterval(timeIt, 1000);
-    timeLeft = Number(sessionTime.textContent) * 60;
 
     function timeIt() {
-        if (counter == timeLeft || isPlay) {
+        if (counter == timeLeft * 60) {
+            clearInterval(interval);
+            isSession = isSession? false : true;
+            newTime();
+            setup();
+        } else if (isPlay) {
             clearInterval(interval);
         } else {
             counter++;
-            timerTime.textContent = convertSeconds(timeLeft - counter);
+            timerTime.textContent = convertSeconds(timeLeft * 60 - counter);
         }
-    }  
+    }
 }
+
+function timeInc() {
+    if (counter === 0) {
+        if (isSession && event.target.id === 'session-inc') {
+            timeLeft++;
+            sessionTime.textContent = Number(sessionTime.textContent) + 1;
+        } else if (event.target.id === 'break-inc') {
+            if (!isSession) {
+                timeLeft++;
+                breakTime.textContent = Number(breakTime.textContent) + 1;
+            } else {
+                breakTime.textContent = Number(breakTime.textContent) + 1;
+            }
+        }
+        timerTime.textContent = convertSeconds(timeLeft * 60 - counter)
+    }
+}
+
+
+function timeDec() {
+    const sessionVal = Number(sessionTime.textContent);
+    const breakVal = Number(breakTime.textContent);
+
+    if (counter === 0) {
+        if (isSession && event.target.id === 'session-dec' && sessionVal !== 1) {
+            timeLeft--;
+            sessionTime.textContent = Number(sessionTime.textContent) - 1;
+        } else if (event.target.id === 'break-dec' && breakVal !== 1) {
+            if (!isSession) {
+                timeLeft--;
+                breakTime.textContent = Number(breakTime.textContent) - 1;
+            } else {
+                breakTime.textContent = Number(breakTime.textContent) - 1;
+            }
+        }
+        console.log(isSession);
+        timerTime.textContent = convertSeconds(timeLeft * 60 - counter)
+    }
+}
+    
+sessionUp.addEventListener('click', timeInc);
+
+sessionDown.addEventListener('click', timeDec);
+
+breakUp.addEventListener('click', timeInc);
+
+breakDown.addEventListener('click', timeDec);
 
 playBtn.addEventListener('click', () => {
     if (isPlay) {
@@ -68,9 +123,7 @@ playBtn.addEventListener('click', () => {
 });
 
 resetBtn.addEventListener('click', () => {
-    counter = 0;
-    isPlay = true;
-    playBtn.innerHTML = '&#9654;'
-    timeLeft = Number(sessionTime.textContent);
-    timerTime.textContent = convertSeconds(timeLeft * 60 - counter);
-})
+    isSession = true;
+    newTime();
+});
+
